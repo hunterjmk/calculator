@@ -1,0 +1,12 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgba(237, 16, 16, 0.843);
+    font-size: 4rem;
+    margin-top: 0;
+    text-align: center;
+}
