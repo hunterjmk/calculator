@@ -23,3 +23,10 @@ function divide(a, b) {
     return a / b;
 };
 
+/* 
+Create a variable for the first number, the operator, and the second number.
+*/
+
+let firstNumber = 10;
+let secondNumber = 5;
+let operator = '+';
