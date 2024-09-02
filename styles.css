@@ -20,8 +20,6 @@ body {
 }
 
 .container {
-    /* height: 25rem;
-    width: 15rem; */
     border-radius: 10px;
     box-shadow: rgba(35, 35, 35, 0.4) 0px 0px 30px 0px;
     background: rgba(255, 255, 255, 0.2);
@@ -37,14 +35,18 @@ h1 {
 }
 
 .display {
-    width: 13.6rem;
-    height: 3rem;
-    padding: 1rem;
-    text-align: end;
+    padding: 10px; 
+    overflow: hidden;
     border: 0;
     border-radius: 10px;
     background: white;
     margin-bottom: 10px;
+}
+
+.text {
+    text-align: end;
+    font-size: 1.8rem;
+    margin: 0;
 }
 
 .buttons {
