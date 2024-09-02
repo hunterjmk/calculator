@@ -40,7 +40,7 @@ function operate(numOne, numTwo, opr) {
         return add(numOne, numTwo);
     } else if (opr === '-') {
         return subtract(numOne, numTwo);
-    } else if (opr === '*') {
+    } else if (opr === 'x') {
         return multiply(numOne, numTwo);
     } else if (opr === '/') {
         return divide(numOne, numTwo);
@@ -58,12 +58,12 @@ Create the functions that populate the display when you click the number buttons
 You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 */
 
+let firstClick = true;
+
 function displayNumber() {
     const numbers = document.querySelectorAll('.number');
     const signs = document.querySelectorAll('.operator');
     const text = document.querySelector('.text');
-
-    let firstClick = true;
 
     numbers.forEach((number) => {
         number.addEventListener('click', () => {
@@ -88,6 +88,34 @@ function displayNumber() {
             // console.log(type, "=", firstNumber, operator);
         });
     })
+
+equal(text);
+clear(text);
 }
 
 displayNumber();
+
+function equal(displayText) {
+    const equal = document.querySelector('.equal');
+
+    equal.addEventListener('click', () => {
+        secondNumber = parseInt(displayText.textContent);
+
+        let result = operate(firstNumber, secondNumber, operator);
+
+        displayText.textContent = result;
+    });
+}
+
+function clear(displayText) {
+    const clearBtn = document.querySelector('.clear');
+
+
+    clearBtn.addEventListener('click', () => {
+        displayText.textContent = '';
+
+        displayText.textContent = 0;
+
+        firstClick = true;
+    });
+}
