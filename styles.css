@@ -51,25 +51,38 @@ h1 {
     /* width: 13.6rem; */
     display: grid;
     grid-template-columns: repeat(4, 25fr);
+    grid-template-rows: repeat(5, 20fr);
     gap: 10px 5px;
 }
 
-.btn {
-    width: 3rem;
-    height: 3rem;
+.btn,
+.equal {
     padding: 0.2rem;
     border: 0;
-    border-radius: 50%;
     font-size: 1rem;
     opacity: 0.75;
     cursor: pointer;
     transition: opacity 0.5s;
 }
 
-.btn:hover {
+.btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.btn:hover,
+.equal:hover {
     opacity: 1;
 }
 
-.btn-sign {
+.equal {
+    text-align: center;
     background: #f7ae5b;
+    grid-column: 1 / -1;
+    border-radius: 5px;
+}
+
+.clear {
+    background: #f47270;
 }
