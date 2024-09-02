@@ -48,6 +48,33 @@ function operate(numOne, numTwo, opr) {
 };
 
 
-let result = operate(firstNumber, secondNumber, operator);
+// let result = operate(firstNumber, secondNumber, operator);
 
-console.log(result);
+// console.log(result);
+
+/*
+Create the functions that populate the display when you click the number buttons. 
+
+You should be storing the ‘display value’ in a variable somewhere for use in the next step.
+*/
+
+function displayNumber() {
+    const numbers = document.querySelectorAll('.number');
+    const text = document.querySelector('.text');
+
+    let firstClick = true;
+
+    numbers.forEach((number) => {
+        number.addEventListener('click', () => {
+            if (firstClick) {
+                text.textContent = '';
+
+                text.textContent = number.textContent;
+
+                firstClick = false;
+            } else text.textContent += number.textContent;
+        });
+    });
+}
+
+displayNumber();
