@@ -60,6 +60,7 @@ You should be storing the ‘display value’ in a variable somewhere for use in
 
 function displayNumber() {
     const numbers = document.querySelectorAll('.number');
+    const signs = document.querySelectorAll('.operator');
     const text = document.querySelector('.text');
 
     let firstClick = true;
@@ -75,6 +76,18 @@ function displayNumber() {
             } else text.textContent += number.textContent;
         });
     });
+
+    signs.forEach((sign) => {
+        sign.addEventListener('click', () => {
+            firstNumber = parseInt(text.textContent);
+
+            operator = sign.textContent;
+            firstClick = true;
+
+            // let type = typeof firstNumber;
+            // console.log(type, "=", firstNumber, operator);
+        });
+    })
 }
 
 displayNumber();
