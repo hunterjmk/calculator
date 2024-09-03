@@ -83,17 +83,17 @@ function displayNumber() {
     signs.forEach((sign) => {
         sign.addEventListener('click', () => {
             if (firstOprClick) {
-                firstNumber = parseInt(text.textContent);
+                firstNumber = parseFloat(text.textContent);
 
                 operator = sign.textContent;
                 firstClick = true;
                 firstOprClick = false;
             } else {
-                secondNumber = parseInt(text.textContent);
+                secondNumber = parseFloat(text.textContent);
 
                 text.textContent = operate(firstNumber, secondNumber, operator);
 
-                firstNumber = parseInt(text.textContent);
+                firstNumber = parseFloat(text.textContent);
                 operator = sign.textContent;
                 firstClick = true;
             }
@@ -113,7 +113,7 @@ function equal(displayText) {
     const equal = document.querySelector('.equal');
 
     equal.addEventListener('click', () => {
-        secondNumber = parseInt(displayText.textContent);
+        secondNumber = parseFloat(displayText.textContent);
 
         let result = operate(firstNumber, secondNumber, operator);
 
