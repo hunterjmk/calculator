@@ -61,7 +61,8 @@ You should be storing the ‘display value’ in a variable somewhere for use in
 */
 
 let firstOprClick = true;
-let firstClick = true; 
+let firstClick = true;
+let pointClick = true; // use this to disable . after one time use per number
 
 function displayNumber() {
     const numbers = document.querySelectorAll('.number');
@@ -87,6 +88,7 @@ function displayNumber() {
 
                 operator = sign.textContent;
                 firstClick = true;
+                pointClick = true;
                 firstOprClick = false;
             } else {
                 secondNumber = parseFloat(text.textContent);
@@ -96,13 +98,14 @@ function displayNumber() {
                 firstNumber = parseFloat(text.textContent);
                 operator = sign.textContent;
                 firstClick = true;
+                pointClick = true; // allows next number to use decimal place
             }
 
             // let type = typeof firstNumber;
             // console.log(type, "=", firstNumber, operator);
         });
     })
-
+regulateFloat(text);
 equal(text);
 clear(text);
 }
@@ -117,7 +120,7 @@ function equal(displayText) {
 
         let result = operate(firstNumber, secondNumber, operator);
 
-        firstOprClick = true;
+        firstOprClick = true; // resetting the equal function
         operator = '';
 
         if (Number.isInteger(result) || typeof(result) === 'string') {
@@ -143,8 +146,22 @@ function clear(displayText) {
 
         firstClick = true;
         firstOprClick = true;
+        pointClick = true;
         firstNumber = '';
         secondNumber = '';
         operator = '';
     });
+}
+
+function regulateFloat(displayText) {
+    const pointBtn = document.querySelector('.float');
+
+    pointBtn.addEventListener('click', () => {
+        while (pointClick == true) {
+            displayText.textContent += pointBtn.textContent;
+
+            firstClick = false;
+            pointClick = false;
+        }
+    })
 }
