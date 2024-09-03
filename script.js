@@ -58,7 +58,8 @@ Create the functions that populate the display when you click the number buttons
 You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 */
 
-let firstClick = true;
+let firstOprClick = true;
+let firstClick = true; 
 
 function displayNumber() {
     const numbers = document.querySelectorAll('.number');
@@ -79,10 +80,21 @@ function displayNumber() {
 
     signs.forEach((sign) => {
         sign.addEventListener('click', () => {
-            firstNumber = parseInt(text.textContent);
+            if (firstOprClick) {
+                firstNumber = parseInt(text.textContent);
 
-            operator = sign.textContent;
-            firstClick = true;
+                operator = sign.textContent;
+                firstClick = true;
+                firstOprClick = false;
+            } else {
+                secondNumber = parseInt(text.textContent);
+
+                text.textContent = operate(firstNumber, secondNumber, operator);
+
+                firstNumber = parseInt(text.textContent);
+                operator = sign.textContent;
+                firstClick = true;
+            }
 
             // let type = typeof firstNumber;
             // console.log(type, "=", firstNumber, operator);
@@ -117,5 +129,6 @@ function clear(displayText) {
         displayText.textContent = 0;
 
         firstClick = true;
+        firstOprClick = true;
     });
 }
