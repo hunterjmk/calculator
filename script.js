@@ -43,8 +43,10 @@ function operate(numOne, numTwo, opr) {
     } else if (opr === 'x') {
         return multiply(numOne, numTwo);
     } else if (opr === '/') {
-        return divide(numOne, numTwo);
-    } else return 'The operator is not recognizable';
+        if (numTwo === 0){
+            return 'Error!'        
+        } else return divide(numOne, numTwo);
+    } else return 'Please use an operator!';
 };
 
 
@@ -118,7 +120,7 @@ function equal(displayText) {
         firstOprClick = true;
         operator = '';
 
-        if (Number.isInteger(result)) {
+        if (Number.isInteger(result) || typeof(result) === 'string') {
             displayText.textContent = result;
         } else {
             let roundedResult = Math.round(result * 100)/100;
