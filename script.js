@@ -27,9 +27,9 @@ function divide(a, b) {
 Create a variable for the first number, the operator, and the second number.
 */
 
-let firstNumber = 10;
-let secondNumber = 5;
-let operator = '+';
+let firstNumber;
+let secondNumber;
+let operator;
 
 /* 
 Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
@@ -115,6 +115,9 @@ function equal(displayText) {
 
         let result = operate(firstNumber, secondNumber, operator);
 
+        firstOprClick = true;
+        operator = '';
+
         if (Number.isInteger(result)) {
             displayText.textContent = result;
         } else {
@@ -138,5 +141,8 @@ function clear(displayText) {
 
         firstClick = true;
         firstOprClick = true;
+        firstNumber = '';
+        secondNumber = '';
+        operator = '';
     });
 }
