@@ -35,8 +35,9 @@ h1 {
 }
 
 .display {
+    max-width: 207px;
     padding: 10px; 
-    overflow: hidden;
+    overflow-wrap: break-word;
     border: 0;
     border-radius: 10px;
     background: white;
