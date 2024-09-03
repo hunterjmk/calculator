@@ -115,7 +115,15 @@ function equal(displayText) {
 
         let result = operate(firstNumber, secondNumber, operator);
 
-        displayText.textContent = result;
+        if (Number.isInteger(result)) {
+            displayText.textContent = result;
+        } else {
+            let roundedResult = Math.round(result * 100)/100;
+
+            displayText.textContent = roundedResult;
+        }
+
+        
     });
 }
 
